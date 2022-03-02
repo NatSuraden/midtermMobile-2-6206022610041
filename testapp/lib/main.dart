@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'welcome_page.dart';
 
 void main(){
   runApp(MyApp());
@@ -40,7 +41,6 @@ class _HomeState extends State<Home> {
     ge.text = "";
     super.initState();
   }
-  
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
                       focusedBorder: myfocusborder(),
                   )
                 ),
-
+                
                 
                 Container(
                 padding: const EdgeInsets.all(10.30),
@@ -156,7 +156,20 @@ class _HomeState extends State<Home> {
                     primary: Colors.white,
                     backgroundColor: Colors.redAccent,
                   ),
-                  onPressed: () {},
+                  onPressed: () {Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => WelcomePage(
+                      name: username.text,
+                      email: email.text,
+                      password: password.text,
+                      cnfpassword: cnfpassword.text,
+                      mobile: mobile.text,
+                      school: school.text,
+                      ge: ge.text,
+                    ),
+                  ),
+                );
+              },
                 ),
               ),
 
